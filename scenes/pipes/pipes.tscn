@@ -1,7 +1,150 @@
-[gd_scene format=3 uid="uid://ctwh8rgad11e0"]
+[gd_scene load_steps=10 format=4 uid="uid://ctwh8rgad11e0"]
+
+[ext_resource type="Script" uid="uid://c46jusrwcs6ky" path="res://scenes/pipes/pipes.gd" id="1_o61fm"]
+[ext_resource type="Texture2D" uid="uid://dhoeymqyse2s4" path="res://assets/Flappy Bird Assets/Tiles/Style 2/SimpleStyle2.png" id="2_ls657"]
+[ext_resource type="Texture2D" uid="uid://bwnwpgi7jw455" path="res://assets/Flappy Bird Assets/Tiles/Style 3/PipeStyle3.png" id="3_dq6nu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p340k"]
+size = Vector2(74, 444)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dq6nu"]
+texture = ExtResource("2_ls657")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_maa8c"]
+texture = ExtResource("3_dq6nu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_maa8c"]
+sources/0 = SubResource("TileSetAtlasSource_dq6nu")
+sources/1 = SubResource("TileSetAtlasSource_maa8c")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o61fm"]
+size = Vector2(70, 453)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ls657"]
+size = Vector2(72, 319)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_o61fm")
 
-[node name="BottomPipe" type="Sprite2D" parent="."]
+[node name="BottomPipe" type="Sprite2D" parent="." groups=["pipes"]]
 
-[node name="TopPipe" type="Sprite2D" parent="."]
+[node name="BottomPipe" type="StaticBody2D" parent="BottomPipe"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomPipe/BottomPipe"]
+position = Vector2(36, 383)
+shape = SubResource("RectangleShape2D_p340k")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="BottomPipe"]
+scale = Vector2(2.45, 1)
+tile_map_data = PackedByteArray("AAAAAAoAAAAEAAAAAAABAAoAAAAFAAAAAAAAAAsAAAAEAAEAAAABAAsAAAAFAAEAAAAAAAwAAAAEAAEAAAABAAwAAAAFAAEAAAAAAA0AAAAEAAEAAAABAA0AAAAFAAEAAAAAAA4AAAAEAAEAAAABAA4AAAAFAAEAAAAAAA8AAAAEAAEAAAABAA8AAAAFAAEAAAAAABAAAAAEAAEAAAABABAAAAAFAAEAAAAAABEAAAAEAAEAAAABABEAAAAFAAEAAAAAABIAAAAEAAEAAAABABIAAAAFAAEAAAAAABMAAAAEAAEAAAABABMAAAAFAAEAAAAAABQAAAAEAAEAAAABABQAAAAFAAEAAAAAABUAAAAEAAEAAAABABUAAAAFAAEAAAAAABYAAAAEAAEAAAABABYAAAAFAAEAAAABABcAAAAFAAEAAAAAABgAAAAEAAEAAAABABgAAAAFAAEAAAAAABkAAAAEAAEAAAABABkAAAAFAAEAAAAAABoAAAAEAAEAAAABABoAAAAFAAEAAAAAABsAAAAEAAEAAAABABsAAAAFAAEAAAAAABwAAAAEAAEAAAABABwAAAAFAAEAAAAAAB0AAAAEAAEAAAABAB0AAAAFAAEAAAAAAB4AAAAEAAEAAAABAB4AAAAFAAEAAAAAAB8AAAAEAAEAAAABAB8AAAAFAAEAAAAAACAAAAAEAAEAAAABACAAAAAFAAEAAAAAACEAAAAEAAEAAAABACEAAAAFAAEAAAAAACIAAAAEAAEAAAABACIAAAAFAAEAAAAAACMAAAAEAAEAAAABACMAAAAFAAEAAAAAACQAAAAEAAEAAAABACQAAAAFAAEAAAAAACUAAAAEAAIAAAABACUAAAAFAAIAAAAAABcAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_maa8c")
+
+[node name="TopPipe" type="Sprite2D" parent="." groups=["pipes"]]
+
+[node name="TopPipe" type="StaticBody2D" parent="TopPipe"]
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="TopPipe/TopPipe"]
+position = Vector2(0, -790)
+scale = Vector2(2.45, 1)
+tile_map_data = PackedByteArray("AAAAAAoAAAAEAAAAAAABAAoAAAAFAAAAAAAAAAsAAAAEAAEAAAABAAsAAAAFAAEAAAAAAAwAAAAEAAEAAAABAAwAAAAFAAEAAAAAAA0AAAAEAAEAAAABAA0AAAAFAAEAAAAAAA4AAAAEAAEAAAABAA4AAAAFAAEAAAAAAA8AAAAEAAEAAAABAA8AAAAFAAEAAAAAABAAAAAEAAEAAAABABAAAAAFAAEAAAAAABEAAAAEAAEAAAABABEAAAAFAAEAAAAAABIAAAAEAAEAAAABABIAAAAFAAEAAAAAABMAAAAEAAEAAAABABMAAAAFAAEAAAAAABQAAAAEAAEAAAABABQAAAAFAAEAAAAAABUAAAAEAAEAAAABABUAAAAFAAEAAAAAABYAAAAEAAEAAAABABYAAAAFAAEAAAABABcAAAAFAAEAAAAAABgAAAAEAAEAAAABABgAAAAFAAEAAAAAABkAAAAEAAEAAAABABkAAAAFAAEAAAAAABoAAAAEAAEAAAABABoAAAAFAAEAAAAAABsAAAAEAAEAAAABABsAAAAFAAEAAAAAABwAAAAEAAEAAAABABwAAAAFAAEAAAAAAB0AAAAEAAEAAAABAB0AAAAFAAEAAAAAAB4AAAAEAAEAAAABAB4AAAAFAAEAAAAAAB8AAAAEAAEAAAABAB8AAAAFAAEAAAAAACAAAAAEAAEAAAABACAAAAAFAAEAAAAAACEAAAAEAAEAAAABACEAAAAFAAEAAAAAACIAAAAEAAEAAAABACIAAAAFAAEAAAAAACMAAAAEAAEAAAABACMAAAAFAAEAAAAAACQAAAAEAAEAAAABACQAAAAFAAEAAAAAACUAAAAEAAIAAAABACUAAAAFAAIAAAAAABcAAAAEAAEAAAA=")
+tile_set = SubResource("TileSet_maa8c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe/TopPipe"]
+position = Vector2(35, -406.5)
+shape = SubResource("RectangleShape2D_o61fm")
+
+[node name="ScoreArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea"]
+position = Vector2(34, -9)
+shape = SubResource("RectangleShape2D_ls657")
+
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]
